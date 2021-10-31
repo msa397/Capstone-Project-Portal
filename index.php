@@ -18,7 +18,7 @@
 
 
 
-<?php include "initDatabase.php"; ?>
+<?php include "init_database.php"; ?>
 <?php include "templates/header.php"; ?>
 <html>
   <title>Capstone Project Portal</title>
