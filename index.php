@@ -27,10 +27,10 @@
     <h1>Capstone Project Portal</h1>
     <ul>
       <li>
-        <a href="studentlogin.php"><strong>Student Login</strong></a>
+        <a href="student_login.php"><strong>Student Login</strong></a>
       </li>
       <li>
-        <a href="postproject.php"><strong>Post Project</strong></a>
+        <a href="post_project.php"><strong>Post Project</strong></a>
       </li>
     </ul>
 
