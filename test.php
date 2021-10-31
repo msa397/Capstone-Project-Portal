@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<?php include "templates/header.php"; ?><h2>Add a user</h2>
 
-    <title>Simple Database App</title>
+    <form method="post">
+    	<label for="firstname">First Name</label>
+    	<input type="text" name="firstname" id="firstname">
+    	<label for="lastname">Last Name</label>
+    	<input type="text" name="lastname" id="lastname">
+    	<label for="email">Email Address</label>
+    	<input type="text" name="email" id="email">
+    	<label for="age">Age</label>
+    	<input type="text" name="age" id="age">
+    	<label for="location">Location</label>
+    	<input type="text" name="location" id="location">
+    	<input type="submit" name="submit" value="Submit">
+    </form>
 
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+    <a href="index.php">Back to home</a>
 
-  <body>
-    <h1>Simple Database App</h1>
-
-    <ul>
-      <li>
-        <a href="create.php"><strong>Create</strong></a> - add a user
-      </li>
-      <li>
-        <a href="read.php"><strong>Read</strong></a> - find a user
-      </li>
-    </ul>
-  </body>
+</body>
 </html>
