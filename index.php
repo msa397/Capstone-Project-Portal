@@ -11,13 +11,14 @@
         Does site need to create database, or just connect to existing one?
         What are best practices for running .sql file in PHP?
         Make pretty
+        !ALL: Error Handling and Input Cleansing!
 
     Modified: 10/31/21 by Michael
 -->
 
 
 
-<?php include "install.php"; ?>
+<?php include "initDatabase.php"; ?>
 <?php include "templates/header.php"; ?>
 <html>
   <title>Capstone Project Portal</title>

@@ -1,4 +1,12 @@
+/*
+    Basic CSS file
+
+    Modified: 10/31/21 by Michael
+*/
+
+
+
 label {
     display: block;
     margin: 5px 0;
-  }
+}
