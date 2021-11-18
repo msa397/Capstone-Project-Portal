@@ -26,7 +26,9 @@ CREATE TABLE IF NOT EXISTS Student (
 CREATE TABLE IF NOT EXISTS Project (
     project_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     project_name VARCHAR(200) NOT NULL,
-    project_admin VARCHAR(2000) NOT NULL,
+    admin_name VARCHAR(200) NOT NULL,
+    admin_company VARCHAR(200) NOT NULL,
+    admin_email VARCHAR(200) NOT NULL,
     project_description VARCHAR (2000) NOT NULL,
     project_skills VARCHAR (2000) NOT NULL,
     project_resources VARCHAR(2000) NOT NULL,

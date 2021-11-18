@@ -12,6 +12,8 @@
         What are best practices for running .sql file in PHP?
         Make pretty
         !ALL: Error Handling and Input Cleansing!
+        Submission Pages for student and project
+        HTML Header File
 
     Modified: 10/31/21 by Michael
 -->
@@ -31,6 +33,9 @@
       </li>
       <li>
         <a href="post_project.php"><strong>Post Project</strong></a>
+      </li>
+      <li>
+        <a href="view_projects.php"><strong>View Projects</strong></a>
       </li>
     </ul>
 
