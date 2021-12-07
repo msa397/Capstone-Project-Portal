@@ -1,6 +1,6 @@
 <!-- 
-    Student login screen
-    Sends and reads student data from database
+    Admin login screen
+    Sends and reads User data from database
 
     TODO:
         Make pretty
@@ -13,7 +13,7 @@
 
 
 <html>
-    <title>Student Login</title>
+    <title>Admin Login</title>
     <body>
 
         <h2>Enter email and password</h2>
@@ -40,7 +40,7 @@
             $pass = is_array($user);
             if($pass){
                 if ($pass = $user["pass"] == $_POST["pass"]){
-                    header("Location: post_project.php");
+                    header("Location: project_preferences.php");
                     exit;
                 }
             }

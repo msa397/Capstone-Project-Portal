@@ -53,12 +53,11 @@
         }
     </style>
 
-    <title>View Projects</title>
+    <title>Project Preferences</title>
     <body>
         <?php
-        //if(isset($_POST['submit'])) {
             if($result && $statement->rowCount() > 0) { ?>
-                <h2>Results</h2>
+                <h2>Projects:</h2>
 
                 <table>
                     <thead>
@@ -76,6 +75,11 @@
                 <tbody>
                 <?php foreach($result as $row){ ?>
                 <tr>
+                    <td>                <input type="radio" id="1" name="1" value=1>
+                        <input type="radio" id="2" name="1" value=2>
+                        <input type="radio" id="3" name="1" value=3>
+                    <input type="radio" id="4" name="1" value=4>
+                <input type="radio" id="5" name="1" value=5>
                     <td><?php echo escape($row["project_id"]); ?></td>
                     <td><?php echo escape($row["project_name"]); ?></td>
                     <td><?php echo escape($row["admin_name"]); ?></td>
@@ -88,26 +92,33 @@
                 <?php } ?>
       </tbody>
   </table>
+
+  <h2>Preferences:</h2>
+        <form method = "post">
+            <?php foreach($result as $row){ ?>
+                <label for="first"><?php echo $row['project_name']; ?></label>
+                
+                <input type="radio" id="1" name="1" value=1>
+                <label for="first">1</label>
+                
+                <input type="radio" id="2" name="1" value=2>
+                <label for="first">2</label>
+                
+                <input type="radio" id="3" name="1" value=3>
+                <label for="first">3</label>
+                
+                <input type="radio" id="4" name="1" value=4>
+                <label for="first">4</label>
+                
+                <input type="radio" id="5" name="1" value=5>
+                <label for="first">5</label>
+                <br>
+            <?php } ?>
+        </form>
   <?php } else { ?>
     > No results found ?>.
   <?php }
 //} ?>
         <br><a href="index.php">Home</a>
-    </body>
-</html>
-
-</html>
-    <body>
-        <h2>Project Preferences</h2>
-        <form method = "post">
-            <?php foreach($result as $row){ ?>
-                <label for="first"><?php $row[project_name]; ?></label>
-                <input type="radio" id="1" name="1" value=1>
-                <input type="radio" id="2" name="1" value=2>
-                <input type="radio" id="3" name="1" value=3>
-                <input type="radio" id="4" name="1" value=4>
-                <input type="radio" id="5" name="1" value=5>
-            <?php } ?>
-        </form>
     </body>
 </html>
