@@ -24,6 +24,12 @@
 
         sign up -> login
 
+
+        encrypt password
+          firebase
+        UI - using templates from online
+        present on tuesday
+
     Modified: 10/31/21 by Michael
 -->
 

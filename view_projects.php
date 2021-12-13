@@ -16,7 +16,7 @@
 //if (isset($_POST['submit'])) {
     try {
         require "config.php";
-        require "common.php";
+        //require "common.php";
 
         $connection = new PDO($dsn, $username, $password, $options);
         $sql = "SELECT * FROM Project";
@@ -29,6 +29,39 @@
         echo $sql . "<br>" . $error->getMessage();
     }
 //}
+?>
+
+<?php
+    require "roles.php";  
+if (isset($_POST['submit'])) {
+    try {
+        session_start();
+        $user = $_SESSION["User"];
+        $connection = new PDO($dsn, $username, $password, $options);
+        //foreach($_POST as $row){
+            $count = 1;
+            $new_pref = array(
+                "user_id" => $user["user_id"],
+                "project_id" => $count,
+                //"preference" => $_POST["1"]
+            );
+            $count++;
+
+                $sql = "INSERT INTO Preferences (user_id, project_id, preference) VALUES (?, ?, 1)";
+                $statement = $connection->prepare($sql);
+                $statement->bindParam(1, $new_pref["user_id"], PDO::PARAM_STR);
+                $statement->bindParam(2, $new_pref["project_id"], PDO::PARAM_STR);
+                //$statement->bindParam(3, $new_pref["preference"], PDO::PARAM_STR);
+                $statement->execute();
+    
+            
+        //}
+
+
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+    }
+}
 ?>
 
 
@@ -95,25 +128,28 @@
 
   <h2>Preferences:</h2>
         <form method = "post">
-            <?php foreach($result as $row){ ?>
+            <?php foreach($result as $row){ 
+                $count = 1;?>
                 <label for="first"><?php echo $row['project_name']; ?></label>
                 
-                <input type="radio" id="1" name="1" value=1>
+                <input type="radio" id="1" name=<?php $count?> value=1>
                 <label for="first">1</label>
                 
-                <input type="radio" id="2" name="1" value=2>
+                <input type="radio" id="2" name=<?php $count?> value=2>
                 <label for="first">2</label>
                 
-                <input type="radio" id="3" name="1" value=3>
+                <input type="radio" id="3" name=<?php $count?> value=3>
                 <label for="first">3</label>
                 
-                <input type="radio" id="4" name="1" value=4>
+                <input type="radio" id="4" name=<?php $count?> value=4>
                 <label for="first">4</label>
                 
-                <input type="radio" id="5" name="1" value=5>
+                <input type="radio" id="5" name=<?php $count?> value=5>
                 <label for="first">5</label>
                 <br>
-            <?php } ?>
+            <?php $count++;
+        } ?>
+            <br><input type="submit" name="submit" value="Submit">
         </form>
   <?php } else { ?>
     > No results found ?>.

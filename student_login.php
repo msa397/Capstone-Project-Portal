@@ -39,9 +39,13 @@
             );
             $pass = is_array($user);
             if($pass){
-                if ($pass = $user["pass"] == $_POST["pass"]){
-                    header("Location: post_project.php");
+                if ($user["pass"] == $_POST["pass"] && 
+                    $user["role_id"] == 1){
+                    header("Location: view_projects.php");
                     exit;
+                }
+                else if($user["role_id"] != 1){
+                    exit("Invalid permissions");
                 }
             }
             if(!$pass)
