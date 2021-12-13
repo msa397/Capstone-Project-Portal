@@ -14,8 +14,8 @@ INSERT INTO User_Role(role_id, role_name) VALUES
     (2, 'Administrator');
 
 INSERT INTO Permission (perm_id, perm_mod, perm_desc) VALUES
-    (1, 'STU', 'Project Preferences'),
-    (2, 'ADM', 'Post Project');
+    (1, 'STU', 'Student Login'),
+    (2, 'ADM', 'Admin Login');
 
 INSERT INTO Role_Permissions (role_id, perm_id) VALUES
     (1, 1),
@@ -85,3 +85,4 @@ CREATE TABLE IF NOT EXISTS Group_Assignment (
     FOREIGN KEY (user_id) REFERENCES User (user_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (project_id) REFERENCES Project (project_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
