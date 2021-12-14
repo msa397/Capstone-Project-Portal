@@ -60,4 +60,5 @@ define("DB_CHARSET", "utf8");
  
 // (C) START!
 $DB = new DB();
-session_start();
+//if(!isset($_SESSION))
+  session_start(); 

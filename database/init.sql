@@ -5,21 +5,6 @@ TODO:
     See Comments
 
 Modified: 10/30/21 by Michael
-
-
-
-
-INSERT INTO User_Role(role_id, role_name) VALUES
-    (1, 'Student'),
-    (2, 'Administrator');
-
-INSERT INTO Permission (perm_id, perm_mod, perm_desc) VALUES
-    (1, 'STU', 'Student Login'),
-    (2, 'ADM', 'Admin Login');
-
-INSERT INTO Role_Permissions (role_id, perm_id) VALUES
-    (1, 1),
-    (2, 2);
 */
 
 
@@ -30,7 +15,7 @@ use Project_Portal;
 -- Holds User information
 -- User ID is automatically incremented by 1 for each row
 CREATE TABLE IF NOT EXISTS User (
-    user_id INTEGER AUTO_INCREMENT PRIMARY KEY, -- ask professor what identifier he wants for User
+    user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(30) NOT NULL,
     pass VARCHAR(30) NOT NULL,
     first_name VARCHAR(20) NOT NULL,
@@ -86,3 +71,15 @@ CREATE TABLE IF NOT EXISTS Group_Assignment (
     FOREIGN KEY (project_id) REFERENCES Project (project_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+INSERT IGNORE INTO User_Role(role_id, role_name) VALUES
+    (1, 'Student'),
+    (2, 'Administrator');
+
+INSERT IGNORE INTO Permission (perm_id, perm_mod, perm_desc) VALUES
+    (1, 'STU', 'Student Login'),
+    (2, 'ADM', 'Admin Login');
+
+INSERT IGNORE INTO Role_Permissions (role_id, perm_id) VALUES
+    (1, 1),
+    (2, 2);

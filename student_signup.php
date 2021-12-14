@@ -6,6 +6,7 @@
         Make pretty
         remove test output
         Encrypt password???
+        error for existing?
 
     Modified: 10/31/21 by Michael
 -->
@@ -58,7 +59,7 @@ if (isset($_POST['submit'])) {
             <label for="email">Email</label>
     	    <input type="text" name="email" id="email">
             <label for="pass">Password</label>
-    	    <input type="text" name="pass" id="pass">
+    	    <input type="password" name="pass" id="pass">
     	    <label for="first_name">First Name</label>
     	    <input type="text" name="first_name" id="first_name">
     	    <label for="last_name">Last Name</label>

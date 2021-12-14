@@ -67,11 +67,11 @@ if (isset($_POST['submit'])) {
         <form method="post">
     	    <label for="project_name">Project Name:</label>
     	    <input type="text" name="project_name" id="project_name">
-    	    <label for="admin_name">Admin Name:</label>
+    	    <label for="admin_name">Client Name:</label>
     	    <input type="text" name="admin_name" id="admin_name">
-            <label for="admin_company">Admin Company:</label>
+            <label for="admin_company">Client Company:</label>
     	    <input type="text" name="admin_company" id="admin_company">
-            <label for="admin_email">Admin Email:</label>
+            <label for="admin_email">Client Email:</label>
     	    <input type="email" name="admin_email" id="admin_email">
             <label for="project_description">Description:</label>
             <textarea id="project_description" name ="project_description" rows="5" cols="50"></textarea>
@@ -79,8 +79,6 @@ if (isset($_POST['submit'])) {
     	    <input type="text" name="project_skills" id="project_skills">
             <label for="project_resources">Resources:</label>
     	    <input type="text" name="project_resources" id="project_resources">
-            <!--<label for="project_notes">Notes (Optional)</label>
-    	    <input type="text" name="project_notes" id="project_notes"> -->
             <br><br><input type="submit" name="submit" value="Submit">
         </form>
         <br><a href="index.php">Home</a>

@@ -50,15 +50,15 @@ if (isset($_POST['submit'])) {
 
 
 <html>
-    <title>Admin Signup</title>
+    <title>Client Signup</title>
     <body>
 
-        <h1>Admin Signup:</h1>
+        <h1>Client Signup:</h1>
         <form method="post">
             <label for="email">Email</label>
     	    <input type="text" name="email" id="email">
             <label for="pass">Password</label>
-    	    <input type="text" name="pass" id="pass">
+    	    <input type="password" name="pass" id="pass">
     	    <label for="first_name">First Name</label>
     	    <input type="text" name="first_name" id="first_name">
     	    <label for="last_name">Last Name</label>

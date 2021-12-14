@@ -15,51 +15,39 @@
 <html>
     <title>Student Login</title>
     <body>
-
-        <h2>Enter email and password</h2>
+        <h1>Student Login:</h1>
         <form method="post">
-            <label for="email">Email</label>
-    	    <input type="text" name="email" id="email">
-            <label for="pass">Password</label>
-    	    <input type="text" name="pass" id="pass">
-            <br><br><input type="submit" name="login" value="login">
+            <label for="email">Email</label><br>
+    	    <input type="text" name="email" id="email"><br>
+            <label for="pass">Password</label><br>
+    	    <input type="password" name="pass" id="pass">
+            <br><br><input type="submit" name="submit" value="Login">
         </form>
-        <br><a href="index.php">Home</a>
-
+        <br><a href="index.php">Home</a><br><br>
     </body>
 </html>
 
 <?php
-    //require "config.php";
-    //require "common.php";
-    require "database.php";
-            $user = $DB->fetch(
-                "SELECT * FROM User JOIN User_Role USING (role_id) WHERE email=?",
-                [$_POST["email"]]
-            );
-            $pass = is_array($user);
-            if($pass){
-                if ($user["pass"] == $_POST["pass"] && 
-                    $user["role_id"] == 1){
-                    header("Location: view_projects.php");
-                    exit;
-                }
-                else if($user["role_id"] != 1){
-                    exit("Invalid permissions");
-                }
+    require "roles.php";
+    if (isset($_POST['submit'])) {
+        $user = $DB->fetch(
+            "SELECT * FROM User JOIN User_Role USING (role_id) WHERE email=?",
+            [$_POST["email"]]
+        );
+        $pass = is_array($user);
+        if($pass){
+            if ($user["pass"] == $_POST["pass"] && $user["role_id"] == 1){
+                $_SESSION["User"] = $user;
+                header("Location: view_projects.php");
+                exit;
             }
-            if(!$pass)
-                exit("Invalid user/password"); 
-
-            $_SESSION["User"] = $user;
-            $_SESSION["User"]["Permission"] = [];
-            unset($_SESSION["User"]["pass"]);
-
-            $perm = $DB->fetchAll(
-                "SELECT * FROM Role_Permissions WHERE role_id=?",
-                [$user["role_id"]]
-              );
-              foreach ($perm as $p) { $_SESSION["User"]["Permission"][] = $p["perm_id"]; }
-
-              print_r($_SESSION);
-?>
+            else if($user["role_id"] != 1){
+                exit("Invalid permissions");
+            }
+            else{ // ($user["pass"] != $_POST["pass"])
+                exit("Invalid username or password");
+            }
+        }
+        else
+            exit("Invalid username or password");
+    }?>
