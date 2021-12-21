@@ -3,22 +3,17 @@
     Retrieves project info from database
 
     TODO:
-        Make pretty
-        remove test output
-
-    Modified: 10/31/21 by Michael
 -->
 
 
 
 <!--Connect to database and retrieve project info-->
 <?php
-//if (isset($_POST['submit'])) {
     try {
         require "config.php";
 
-        $connection = new PDO($dsn, $username, $password, $options);
-        $sql = "SELECT * FROM Project";
+        $connection = new PDO($dsn, $username, $password, $options);    //Connect to database
+        $sql = "SELECT * FROM Project"; //Select all entries
 
         $statement = $connection->prepare($sql);
         $statement->execute();
@@ -27,7 +22,6 @@
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
-//}
 ?>
 
 <?php
@@ -40,10 +34,10 @@ if (isset($_POST['submit'])) {
         $connection = new PDO($dsn, $username, $password, $options);
         $count = 1;
 
-        while(isset($_POST[$count]) && !empty($_POST[$count]))
+        while(isset($_POST[$count]) && !empty($_POST[$count]))  //Count number of entries
             $count++;
 
-        for($i = 1; $i < $count; $i++){
+        for($i = 1; $i < $count; $i++){ //For each entry: create array from form data and submit to database
             $new_pref = array(
                 "user_id" => $user["user_id"],
                 "project_id" => $i,
@@ -126,7 +120,7 @@ if (isset($_POST['submit'])) {
         <form method = "post">
             <?php 
                 $count = 1;
-                foreach($result as $row){ 
+                foreach($result as $row){ //Create row of radio buttons for each table entry
                     echo $row['project_id'] . ': ' . $row['project_name'];?><br>
 
                     <input type="radio" id="1" name=<?php echo $count;?> value=1>

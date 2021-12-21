@@ -2,12 +2,6 @@
     Companies post projects here
 
     TODO:
-        Allow companies to post projects
-        Make Pretty
-        Sanitize POST
-        project note?
-
-    Modified: 
 -->
 
 
@@ -20,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     try {
         $connection = new PDO($dsn, $username, $password, $options);
-        $new_project = array(
+        $new_project = array(   //Create array from form info
             "project_name" => $_POST['project_name'],
             "admin_name"  => $_POST['admin_name'],
             "admin_company"  => $_POST['admin_company'],
@@ -42,7 +36,7 @@ if (isset($_POST['submit'])) {
         $statement->bindParam(6, $new_project["project_skills"], PDO::PARAM_STR);
         $statement->bindParam(7, $new_project["project_resources"], PDO::PARAM_STR);
         //$statement->bindParam(8, $new_project["project_notes"], PDO::PARAM_STR);
-        $statement->execute();
+        $statement->execute();  //Push entry to database
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
@@ -53,8 +47,7 @@ if (isset($_POST['submit'])) {
 <!--Project Submission Form-->
 <?php include "templates/header.php"; ?>
 
-
-<?php if (isset($_POST['submit']) && $statement) { //TEST OUTPUT?>
+<?php if (isset($_POST['submit']) && $statement) {?>
   <?php echo escape($_POST['project_name']); ?> successfully added.
 <?php } ?>
 

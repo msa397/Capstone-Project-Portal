@@ -3,12 +3,6 @@
     Sends student data to database
 
     TODO:
-        Make pretty
-        remove test output
-        Encrypt password???
-        error for existing?
-
-    Modified: 10/31/21 by Michael
 -->
 
 
@@ -20,7 +14,7 @@ if (isset($_POST['submit'])) {
     require "common.php";
 
     try {
-        $connection = new PDO($dsn, $username, $password, $options);
+        $connection = new PDO($dsn, $username, $password, $options); //Connect to database
         $new_student = array(
             "email" => $_POST['email'],
             "pass" => $_POST['pass'],
@@ -33,7 +27,7 @@ if (isset($_POST['submit'])) {
         $statement->bindParam(2, $new_student["pass"], PDO::PARAM_STR);
         $statement->bindParam(3, $new_student["first_name"], PDO::PARAM_STR);
         $statement->bindParam(4, $new_student["last_name"], PDO::PARAM_STR);
-        $statement->execute();
+        $statement->execute(); //Insert entry into database
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
@@ -45,7 +39,7 @@ if (isset($_POST['submit'])) {
 <?php include "templates/header.php"; ?>
 
 
-<?php if (isset($_POST['submit']) && $statement) { //TEST OUTPUT?>
+<?php if (isset($_POST['submit']) && $statement) {?>
   <?php echo escape($_POST['first_name']); ?> successfully added.
 <?php } ?>
 

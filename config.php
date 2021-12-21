@@ -1,8 +1,6 @@
 <?php
 /*
     Configuration for database connection
-
-    Modified: 10/31/21 by Michael
 */
 
 

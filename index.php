@@ -7,16 +7,6 @@
       Site uses algorithm to form groups, which are stored in Group Table
 
     TODO:
-        EVCAPPROACH.com
-        Make pretty
-        !ALL: Error Handling and Input Cleansing!
-
-        encrypt password
-          firebase
-        UI - using templates from online
-        present on tuesday
-
-    Modified: 10/31/21 by Michael
 -->
 
 

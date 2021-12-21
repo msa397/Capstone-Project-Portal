@@ -1,8 +1,6 @@
 <?php
 /*
     Escapes HTML for output
-
-    Modified: 10/31/21 by Michael
 */
 
 

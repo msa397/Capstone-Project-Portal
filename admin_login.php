@@ -3,15 +3,10 @@
     Sends and reads User data from database
 
     TODO:
-        Make pretty
-        remove test output
-        Encrypt password???
 -->
 
 
 <!--Connect to database-->
-
-
 <html>
     <title>Client Login</title>
     <body>
@@ -30,24 +25,23 @@
 <?php
     require "roles.php";
     if (isset($_POST['submit'])) {
-        $user = $DB->fetch(
+        $user = $DB->fetch( //Get user entry from database
             "SELECT * FROM User JOIN User_Role USING (role_id) WHERE email=?",
             [$_POST["email"]]
         );
         $pass = is_array($user);
-        if($pass){
+        if($pass){  //Check password
             if ($user["pass"] == $_POST["pass"] && $user["role_id"] == 2){
                 $_SESSION["User"] = $user;
                 header("Location: post_project.php");
                 exit;
             }
-            else if($user["role_id"] != 2){
+            else if($user["role_id"] != 2)
                 exit("Invalid permissions");
-            }
-            else{ // ($user["pass"] != $_POST["pass"])
+            else
                 exit("Invalid username or password");
-            }
         }
         else
             exit("Invalid username or password");
-    }?>
+    }
+?>

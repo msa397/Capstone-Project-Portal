@@ -3,11 +3,6 @@
     Sends Admin data to database
 
     TODO:
-        Make pretty
-        remove test output
-        Encrypt password???
-
-    Modified: 10/31/21 by Michael
 -->
 
 
@@ -19,20 +14,20 @@ if (isset($_POST['submit'])) {
     require "common.php";
 
     try {
-        $connection = new PDO($dsn, $username, $password, $options);
+        $connection = new PDO($dsn, $username, $password, $options);    //Connect to database
         $new_admin = array(
             "email" => $_POST['email'],
             "pass" => $_POST['pass'],
             "first_name" => $_POST['first_name'],
             "last_name"  => $_POST['last_name']
         );
-        $sql = "INSERT INTO User (email, pass, first_name, last_name, role_id) VALUES (?, ?, ?, ?, 2)";
+        $sql = "INSERT INTO User (email, pass, first_name, last_name, role_id) VALUES (?, ?, ?, ?, 2)"; 
         $statement = $connection->prepare($sql);
         $statement->bindParam(1, $new_admin["email"], PDO::PARAM_STR);
         $statement->bindParam(2, $new_admin["pass"], PDO::PARAM_STR);
         $statement->bindParam(3, $new_admin["first_name"], PDO::PARAM_STR);
         $statement->bindParam(4, $new_admin["last_name"], PDO::PARAM_STR);
-        $statement->execute();
+        $statement->execute();  //Insert entry into database
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
@@ -43,8 +38,7 @@ if (isset($_POST['submit'])) {
 <!--Admin Signup Form-->
 <?php include "templates/header.php"; ?>
 
-
-<?php if (isset($_POST['submit']) && $statement) { //TEST OUTPUT?>
+<?php if (isset($_POST['submit']) && $statement) {//Confirmation Message?>
   <?php echo escape($_POST['first_name']); ?> successfully added.
 <?php } ?>
 
