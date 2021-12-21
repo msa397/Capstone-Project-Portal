@@ -1,0 +1,11 @@
+To run this application, use a program such as XAMPP.
+
+Usage Instructions:
+	Students:
+		Use Student Signup to create an account
+		Use Student Login to login
+		View projects and use form to fill out preferences
+	Clients:
+		Use Client Signup to create an account
+		Use Client Login to login
+		Use form to fill in project information and post to database
